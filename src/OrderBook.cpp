@@ -46,12 +46,10 @@ void OrderBook::cancelOrder(OrderId id){
 
     Price px = pit->second;
 
-    // ---------------- BUY SIDE ----------------
     if (ord.side == Side::BUY) {
         auto lvlIt = m_bids.find(px);
         if (lvlIt != m_bids.end()) {
             auto& dq = lvlIt->second.orders;
-            // Search the deque at this price level
             for (auto qit = dq.begin(); qit != dq.end(); ++qit) {
                 if (qit->id == id) {
                     // Adjust aggregate depth
@@ -68,7 +66,6 @@ void OrderBook::cancelOrder(OrderId id){
             if (dq.empty()) m_bids.erase(lvlIt);
         }
     }
-    // ---------------- SELL SIDE ----------------
     else {
         auto lvlIt = m_asks.find(px);
         if (lvlIt != m_asks.end()) {
@@ -88,7 +85,6 @@ void OrderBook::cancelOrder(OrderId id){
         }
     }
 
-    // Remove from lookup maps
     m_orders.erase(id);
     m_orderPrices.erase(id);
 }

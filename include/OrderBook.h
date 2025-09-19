@@ -30,20 +30,16 @@ public:
     
 private:
     
-    // Bids stored as: price -> Depth (sorted descending by price).
     std::map<Price, Depth, std::greater<Price>> m_bids;
 
-    // Asks stored as: price -> Depth  
     std::map<Price, Depth> m_asks; // ascending
     
     std::unordered_map<OrderId, Order> m_orders;
     std::unordered_map<OrderId, Price> m_orderPrices;
     
     // Handle new limit orders:
-    // - Match against opposite side until no crossing or order is filled.
     void processLimitOrder(const Order& order);
 
     // Handle new market orders:
-    // - Sweep opposite side until filled or book empty.
     void processMarketOrder(const Order& order);
 };

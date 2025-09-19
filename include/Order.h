@@ -17,7 +17,7 @@ struct Order {
     Side side;            // BUY or SELl
     OrderType type;       // LIMIT or MARKET
     Quantity quantity;    // Number of units 
-    Price price;          // limit price (ignored if market order)
+    Price price;          // limit price 
     Timestamp timestamp;  // for time priority
     std::string symbol;   // TIKER
     
