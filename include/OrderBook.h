@@ -27,6 +27,8 @@ public:
     Price getBestBid() const;
     Price getBestAsk() const;
     Depth getDepth(Price price) const;
+
+    void printBook(int depth = 5) const;
     
 private:
     
