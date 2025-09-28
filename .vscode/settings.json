@@ -3,6 +3,7 @@
         "*.cpp": "cpp",
         "unordered_map": "cpp",
         "deque": "cpp",
-        "map": "cpp"
+        "map": "cpp",
+        "__mutex_base": "cpp"
     }
 }
