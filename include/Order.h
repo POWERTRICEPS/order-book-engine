@@ -19,7 +19,7 @@ struct Order {
     Quantity quantity;    // Number of units 
     Price price;          // limit price 
     Timestamp timestamp;  // for time priority
-    std::string symbol;   // TIKER
+    std::string symbol;   // TICKER
     
     // Constructor
     Order(OrderId id, Side side, OrderType type, Quantity quantity, Price price, Timestamp timestamp, const std::string& symbol)
